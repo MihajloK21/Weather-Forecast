@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <title>To Do List</title>
+</head>
+<body>
+
+  <div class="main-container">
+
+
+    <!--* New task info-->
+
+    <section class="add-task box">
+  
+      
+      <h1 class="name-header title">Add Task</h1>
+  
+  
+      <div class="name-container">
+  
+        <label for="name-input" class="name-input-label header">Task name:</label>
+        <input type="text" name="name-input" class="name-input" placeholder="Ex. Wash the dishes">
+  
+      </div>
+  
+      <div class="urgency-container">
+  
+        <h2 class="urgency-header header">Urgency</h2>
+  
+        <div class="urgency-button-container">
+  
+          <button class="urgency-button high">High</button>
+          <button class="urgency-button mid">Mid</button>
+          <button class="urgency-button low">Low</button>
+  
+        </div>
+  
+      </div>
+  
+  
+      <div class="date-container">
+
+        <label for="date-input" class="date-input-label header">Due date:</label>
+        <input type="date" class="date-input" name="date-input">
+  
+      </div>
+  
+  
+      <div class="add-task-button-container">
+  
+        <button class="add-task-button">Add</button>
+  
+      </div>
+  
+  
+    </section>
+  
+  
+  
+    <!--* All tasks-->
+  
+  
+  
+    <section class="display-task box">
+      
+  
+      <h1 class="display-task-header title">Tasks</h1>
+  
+  
+      <div class="sort-button-container">
+  
+        <button class="sort-button" id="all">All</button>
+        <button class="sort-button" id="completed">Completed</button>
+        <button class="sort-button" id="in-progress">In Progress</button>
+        <button class="sort-button" id="not-started">Not Started</button>
+  
+      </div>
+
+  
+      <div class="task-container">
+
+        <!--
+        <div class="task">
+
+
+          <i class="fa-solid fa-x task-icon"></i>
+
+          <h2 class="task-name">Take out the trash</h2>
+  
+          <div class="task-info">
+            <button class="task-urgency">Medium</button>
+    
+            <h2 class="task-date">30-08-2024</h2>
+          </div>
+    
+          <div class="task-status-container">
+
+            <h2 class="task-status-header">Select status:</h2>
+
+            <option value="completed" class="task-status">Completed</option>
+            <option value="in progress" class="task-status active">In progress</option>
+            <option value="not started" class="task-status">Not started</option>
+    
+          </div>
+
+
+        </div>
+        -->
+        
+
+        
+
+      </div>
+  
+  
+    </section>
+
+
+  </div>
+  
+  <script defer src="app.js"></script>
+</body>
+</html>

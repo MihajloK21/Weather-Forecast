@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>NODE Weather API</title>
+</head>
+
+<body>
+
+  <header>
+    
+    <h2 class="header-title">Weather<span class="header-title-span">Now</span></h2>
+
+    <form class="search-form" method="post" action="/search">
+      <input type="text" id="search_bar" name="search_bar" placeholder="E.g New York, USA " formaction="/search">
+      <button class="header-button" type="submit"><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+    </form>
+
+    <a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener noreferrer" class="header-icon-container"><i class="fa-solid fa-gear header-icon"></i></a>
+    
+
+  </header>
+
+  <div class="container">
+  
+    <div class="box weather-container">
+
+      <div class="weather-name">
+        <h1 class="name-location title"><%= name %></h1>
+        <h2 class="name-date"><%= date %></h2>
+        <h2 class="name-time"><%= time %></h2>
+      </div>
+
+
+      
+
+      <div class="weather-box-1 shade">
+
+        <div class="main-img-container">
+          <% if (locals.checkDay === 1)  {%>
+            <img src="images/<%= day_img %>" alt="main-img" class="main-img">
+          <%} else {%>
+            <img src="images/<%= night_img %>" alt="main-img" class="main-img">
+          <%}%>
+        </div>
+          
+        <div class="weather-info">
+          <span class="info-number"><%= temp %>°C</span>
+
+          <% if (locals.checkDay === 1)  {%>
+            <span class="info-name"><%= day %></span>
+          <%} else {%>
+            <span class="info-name"><%= night %></span>
+          <%}%>
+        </div>
+
+      </div>
+      <div class="weather-box-2">
+
+        <span class="sun-info">
+          <img src="images/sunrise.png" alt="sunrise" class="sun"><span class="sun-text rise">Sunrise <%= sunrise %> AM</span>
+        </span>
+          
+        <span class="sun-info">
+          <img src="images/sunset.png" alt="sunrise" class="sun"><span class="sun-text set">Sunset <%= sunset %> PM</span> 
+        </span>
+
+        </div>
+
+    </div>
+  
+    <div class="box info-container">
+
+      <h2 class="info-title title">Weather Info</h2>
+
+      <div class="info-box-container">
+
+        <div class="info-box shade">
+          <p class="info air-text">Precipitation </p>
+          <span class="info air-number"><%= precipitation %>%</span>
+        </div>
+  
+        <div class="info-box shade">
+          <p class="info wind-text">Wind</p>
+          <span class="info wind-speed"><%= wind %> km/h</span>
+        </div>
+  
+        <div class="info-box shade">
+          <p class="info humid-text">Humidity</p>
+          <span class="info humid-number"><%= humidity %>%</span>
+        </div>
+  
+        <div class="info-box shade">
+          <p class="info feel-text">Feels like</p>
+          <span class="info feel-number"><%= feels %>°C</span>
+        </div>
+  
+        <div class="info-box shade">
+          <p class="info visible-text">Visibility</p>
+          <span class="info visible-number"><%= visibility %>km</span>
+        </div>
+  
+        <div class="info-box shade">
+          <p class="info uv-text">Uv index</p>
+          <span class="info uv-number"><%= uv_index %></span>
+        </div>
+  
+        <div class="info-box shade">
+          <p class="info press-text">Pressure</p>
+          <span class="info press-number"><%= pressure %>mb</span>
+        </div>
+  
+        <div class="info-box shade">
+          <p class="info dew-text">Dew point</p>
+          <span class="info dew-number"><%= dew_point %>°C</span>
+        </div>
+
+      </div>
+
+
+    </div>
+  
+    <div class="box forecast-container">
+      <h2 class="forecast-title title">Forecast</h2>
+
+      <div class="forecast-info">
+        <ul class="item-list">
+
+          <li class="item shade">
+            <span class="item-icon"><img src="images/<%= day_1_img %>" alt="mon" class="item-img"></span>
+            <span class="item-name"><%= day_1_name %></span> 
+            <div class="item-text">
+              <span class="text-1"><%= day_1_max %> °C</span> 
+              <span class="text-2"><%= day_1_min %> °C</span> 
+            </div>
+            <span class="item-date"><%= day_1_date %></span>
+          </li>
+
+          <li class="item shade">
+            <span class="item-icon"><img src="images/<%= day_2_img %>" alt="mon" class="item-img"></span>
+            <span class="item-name"><%= day_2_name %></span> 
+            <div class="item-text">
+              <span class="text-1"><%= day_2_max %> °C</span> 
+              <span class="text-2"><%= day_2_min %> °C</span> 
+            </div>
+            <span class="item-date"><%= day_2_date %></span>
+          </li>
+
+          <li class="item shade">
+            <span class="item-icon"><img src="images/<%= day_3_img %>" alt="mon" class="item-img"></span>
+            <span class="item-name"><%= day_3_name %></span> 
+            <div class="item-text">
+              <span class="text-1"><%= day_3_max %> °C</span> 
+              <span class="text-2"><%= day_3_min %> °C</span> 
+            </div>
+            <span class="item-date"><%= day_3_date %></span>
+          </li>
+
+          <li class="item shade">
+            <span class="item-icon"><img src="images/<%= day_4_img %>" alt="mon" class="item-img"></span>
+            <span class="item-name"><%= day_4_name %> freezzing</span> 
+            <div class="item-text">
+              <span class="text-1"><%= day_4_max %> °C</span> 
+              <span class="text-2"><%= day_4_min %> °C</span> 
+            </div>
+            <span class="item-date"><%= day_4_date %></span>
+          </li>
+
+          <li class="item shade">
+            <span class="item-icon"><img src="images/<%= day_5_img %>" alt="mon" class="item-img"></span>
+            <span class="item-name"><%= day_5_name %> freezzing</span> 
+            <div class="item-text">
+              <span class="text-1"><%= day_5_max %> °C</span> 
+              <span class="text-2"><%= day_5_min %> °C</span> 
+            </div>
+            <span class="item-date"><%= day_5_date %></span>
+          </li>
+
+          <li class="item shade">
+            <span class="item-icon"><img src="images/<%= day_6_img %>" alt="mon" class="item-img"></span>
+            <span class="item-name"><%= day_6_name %> freezzing</span> 
+            <div class="item-text">
+              <span class="text-1"><%= day_6_max %> °C</span> 
+              <span class="text-2"><%= day_6_min %> °C</span> 
+            </div>
+            <span class="item-date"><%= day_6_date %></span>
+          </li>
+
+          <li class="item shade">
+            <span class="item-icon"><img src="images/<%= day_7_img %>" alt="mon" class="item-img"></span>
+            <span class="item-name"><%= day_7_name %></span> 
+            <div class="item-text">
+              <span class="text-1"><%= day_7_max %> °C</span> 
+              <span class="text-2"><%= day_7_min %> °C</span> 
+            </div> 
+            <span class="item-date"><%= day_7_date %></span>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  
+  </div>
+  
+</body>
+</html>
